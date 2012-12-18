@@ -1135,7 +1135,7 @@ class Mongo_db {
 			show_error("No Mongo collection selected to delete from", 500);
 		}
 		
-	 	if (isset($this->wheres['_id']) and ! ($this->wheres['_id'] instanceof MongoId))
+	 	if (isset($this->wheres['_id']) and ! ($this->wheres['_id'] instanceof MongoId) and !(is_array($this->wheres['_id'])))
 		{
 			$this->wheres['_id'] = new MongoId($this->wheres['_id']);
 		}
